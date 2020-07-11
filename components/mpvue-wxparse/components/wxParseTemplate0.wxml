@@ -1,0 +1,50 @@
+<block wx:if="{{node.node=='element'}}">
+    <button size="mini" type="default" wx:if="{{node.tag=='button'}}">
+        <weixin-parse-template bind:__l="__l" node="{{node}}" vueId="{{'1-'+__i0__}}" wx:for="{{node.nodes}}" wx:for-index="__i0__" wx:for-item="node" wx:key="index"></weixin-parse-template>
+    </button>
+    <block wx:else>
+        <view class="{{['li',node.classStr]}}" style="{{node.styleStr}}" wx:if="{{node.tag=='li'}}">
+            <view class="{{['li-inner',node.classStr]}}">
+                <view class="{{['li-text',node.classStr]}}">
+                    <view class="{{['li-circle',node.classStr]}}"></view>
+                </view>
+                <view class="{{['li-text',node.classStr]}}">
+                    <weixin-parse-template bind:__l="__l" node="{{node}}" vueId="{{'2-'+__i1__}}" wx:for="{{node.nodes}}" wx:for-index="__i1__" wx:for-item="node" wx:key="index"></weixin-parse-template>
+                </view>
+            </view>
+        </view>
+        <block wx:else>
+            <weixin-parse-video bind:__l="__l" node="{{node}}" vueId="3" wx:if="{{node.tag=='video'}}"></weixin-parse-video>
+            <block wx:else>
+                <weixin-parse-img bind:__l="__l" node="{{node}}" vueId="4" wx:if="{{node.tag=='img'}}"></weixin-parse-img>
+                <block wx:else>
+                    <view class="{{['inline a',node.classStr]}}" data-href="{{node.attr.href}}" style="{{node.styleStr}}" wx:if="{{node.tag=='a'}}">
+                        <weixin-parse-template bind:__l="__l" node="{{node}}" vueId="{{'5-'+__i2__}}" wx:for="{{node.nodes}}" wx:for-index="__i2__" wx:for-item="node" wx:key="index"></weixin-parse-template>
+                    </view>
+                    <block wx:else>
+                        <view class="{{['table',node.classStr]}}" style="{{node.styleStr}}" wx:if="{{node.tag=='table'}}">
+                            <weixin-parse-template bind:__l="__l" node="{{node}}" vueId="{{'6-'+__i3__}}" wx:for="{{node.nodes}}" wx:for-index="__i3__" wx:for-item="node" wx:key="index"></weixin-parse-template>
+                        </view>
+                        <block wx:else>
+                            <text wx:if="{{node.tag=='br'}}">
+</text>
+                            <block wx:else>
+                                <view class="{{[node.classStr,node.tag]}}" style="{{node.styleStr}}" wx:if="{{node.tagType=='block'&&node.tag!=='script'}}">
+                                    <weixin-parse-template bind:__l="__l" node="{{node}}" vueId="{{'7-'+__i4__}}" wx:for="{{node.nodes}}" wx:for-index="__i4__" wx:for-item="node" wx:key="index"></weixin-parse-template>
+                                </view>
+                                <block wx:else>
+                                    <view class="{{['inline',node.classStr,node.tag]}}" style="{{node.styleStr}}" wx:if="{{node.tagType=='inline'&&node.tag!=='style'}}">
+                                        <weixin-parse-template bind:__l="__l" node="{{node}}" vueId="{{'8-'+__i5__}}" wx:for="{{node.nodes}}" wx:for-index="__i5__" wx:for-item="node" wx:key="index"></weixin-parse-template>
+                                    </view>
+                                </block>
+                            </block>
+                        </block>
+                    </block>
+                </block>
+            </block>
+        </block>
+    </block>
+</block>
+<block wx:else>
+    <block wx:if="{{node.node=='text'}}">{{''+node.text+''}}</block>
+</block>

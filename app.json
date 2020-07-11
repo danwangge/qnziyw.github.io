@@ -1,0 +1,24 @@
+{
+  "pages": [
+    "yb_shopv2/native/tabbar0/index",
+    "yb_shopv2/native/tabbar1/index",
+    "yb_shopv2/native/tabbar2/index",
+    "yb_shopv2/native/tabbar3/index",
+    "yb_shopv2/native/tabbar4/index",
+    "yb_shopv2/native/all/index",
+    "yb_shopv2/pages/distribution/child/ewmPoster",
+    "yb_shopv2/pages/null-page/null-page"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "首页",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#ffffff",
+    "backgroundColorTop": "#ffffff",
+    "backgroundColorBottom": "#ffffff"
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx007835c3c83a5785"
+  ],
+  "sitemapLocation": "sitemap.json"
+}
